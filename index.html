@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <svg class="chart"></svg>
+        <svg class="chart2"></svg>
+        <script src="d3.v3.js"></script>
+        <script src="bars.js"></script>
+        <script>
+            hb = new HorizontalBars(d3.select('.chart'), [10, 20, 30], {
+                width: 420,
+                height: 100,
+                bar_height: 50
+            })
+            hb = new HorizontalBars(d3.select('.chart2'), [30, 20, 10], {
+                width: 520,
+                height: 100,
+                bar_height: 10
+            })
+        </script>
+    </body>
+</html>

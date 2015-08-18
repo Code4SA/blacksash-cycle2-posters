@@ -1,0 +1,22 @@
+.chart text {
+  fill: black;
+  font: 12px 'HelveticaNeueLTStd-Lt';
+  text-anchor: end;
+}
+
+.barseg rect {
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.barseg_2 rect {
+    fill: black;
+}
+
+.barseg_1 rect {
+    fill: white;
+}
+
+.barseg_0 rect {
+    fill: #F4991F;
+}
