@@ -1,4 +1,4 @@
-.chart text {
+text {
   fill: black;
   font: 12px 'HelveticaNeueLTStd-Lt';
   text-anchor: end;
@@ -19,4 +19,16 @@
 
 .barseg_0 rect {
     fill: #F4991F;
+}
+
+.bar_0 rect {
+    fill: black;
+}
+
+.bar_1 rect {
+    fill: #F4991F;
+}
+
+.bar rect {
+    stroke: black;
 }
