@@ -46,7 +46,7 @@ HorizontalStackedBars.prototype = {
             .attr("y", -3)
             .attr("dy", "-.35em")
             .attr("dx", ".35em")
-            .text(function(d) { return d; });
+            .text(function(d) { if (d > 0) return d; });
     },
 }
 

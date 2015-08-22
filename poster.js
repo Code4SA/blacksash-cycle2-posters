@@ -10,6 +10,46 @@ var data = {
             2014 : [70, 80, 90],
             2015 : [100, 110, 120],
         },
+    },
+    q3 : {
+        women : {
+            2014 : [90, 0, 30],
+            2015 : [40, 0, 66],
+        },
+        men : {
+            2014 : [70, 0, 90],
+            2015 : [100, 0, 120],
+        },
+    },
+    q4 : {
+        women : {
+            2014 : [90, 0, 30],
+            2015 : [40, 0, 66],
+        },
+        men : {
+            2014 : [70, 0, 90],
+            2015 : [100, 0, 120],
+        },
+    },
+    q5 : {
+        women : {
+            2014 : [90, 0, 30],
+            2015 : [40, 0, 66],
+        },
+        men : {
+            2014 : [70, 0, 90],
+            2015 : [100, 0, 120],
+        },
+    },
+    q6 : {
+        women : {
+            2014 : [90, 0, 30],
+            2015 : [40, 0, 66],
+        },
+        men : {
+            2014 : [70, 0, 90],
+            2015 : [100, 0, 120],
+        },
     }
 }
 
@@ -73,5 +113,9 @@ var place_elements = function(node) {
 
     console.log(node.select('#q2'));
     place_type1_question(node.select('#q2'), data.q2);
+    place_type1_question(node.select('#q3'), data.q3);
+    place_type1_question(node.select('#q4'), data.q4);
+    place_type1_question(node.select('#q5'), data.q5);
+    place_type1_question(node.select('#q6'), data.q6);
 
 }
