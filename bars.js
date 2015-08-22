@@ -24,7 +24,7 @@ HorizontalStackedBars.prototype = {
             .range([0, me.width - me.border_width]);
 
 
-        var bar = this.node.selectAll("g")
+        var bar = this.node.selectAll("g .segment")
             .data(this.data)
             .enter()
             .append("g")
