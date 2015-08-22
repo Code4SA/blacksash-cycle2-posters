@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div id="poster"></div>
+        <script src="d3.v3.js"></script>
+        <script src="bars.js"></script>
+        <script src="poster.js"></script>
+        <script>
+        d3.xml('sassa.svg', function(xml) {
+            var importedNode = document.importNode(xml.documentElement, true);
+            var poster = d3.selectAll('#poster')[0][0].appendChild(importedNode.cloneNode(true));
+            place_elements(d3.select('#poster'));
+        })
+        </script>
+
+    </body>
+</html>
+

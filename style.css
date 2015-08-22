@@ -1,24 +1,26 @@
-text {
+.barseg text {
   fill: black;
   font: 12px 'HelveticaNeueLTStd-Lt';
   text-anchor: end;
 }
 
 .barseg rect {
-    stroke: black;
-    stroke-width: 1px;
+    stroke-width:0.3px;
 }
 
 .barseg_2 rect {
     fill: black;
+    stroke: black;
 }
 
 .barseg_1 rect {
     fill: white;
+    stroke: black;
 }
 
 .barseg_0 rect {
     fill: #F4991F;
+    stroke: #F4991F;
 }
 
 .bar_0 rect {
@@ -30,5 +32,4 @@ text {
 }
 
 .bar rect {
-    stroke: black;
 }

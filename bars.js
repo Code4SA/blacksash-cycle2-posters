@@ -23,9 +23,6 @@ HorizontalStackedBars.prototype = {
             .domain([0, d3.sum(me.data)])
             .range([0, me.width - me.border_width]);
 
-        this.node 
-            .attr("width", this.width)
-            .attr("height", this.height);
 
         var bar = this.node.selectAll("g")
             .data(this.data)
@@ -48,6 +45,60 @@ HorizontalStackedBars.prototype = {
             })
             .attr("y", -3)
             .attr("dy", "-.35em")
+            .attr("dx", ".35em")
+            .text(function(d) { return d; });
+    },
+}
+
+function VerticalStackedBars(node, data, ctx) {
+    this.node = node;
+    this.data = data;
+    this.width = ctx.width || 100;
+    this.height = ctx.height || 420;
+    this.bar_width = ctx.bar_width || 50;
+    this.border_width = ctx.border_width || 1;
+    this.class_prefix = ctx.class_prefix || "barseg";
+    this.draw();
+}
+
+VerticalStackedBars.prototype = {
+    draw : function() {
+        var me = this;
+
+        _chunk_height = function(el, i) {
+            var index = me.data.length - i;
+            var sub = me.data.slice(0, index);
+            return y(d3.sum(sub))
+        }
+
+        var y = d3.scale.linear()
+            .domain([0, d3.sum(me.data)])
+            .range([0, me.height - me.border_width]);
+
+        this.node 
+            .attr("width", this.width)
+            .attr("height", this.height);
+
+        var bar = this.node.selectAll("g")
+            .data(this.data)
+            .enter()
+            .append("g")
+                .attr("class", function(el, i) {
+                    return me.class_prefix + " " + me.class_prefix + "_" + i;
+                })
+
+        bar.append("rect")
+            .attr("height", _chunk_height)
+            .attr("width", me.bar_width - me.border_width * 2);
+
+        bar.append("text")
+            .attr("y", function(d, i) {
+                var total =  d3.sum(me.data.slice(0, i + 1));
+                var left = y(d / 2 + d3.sum(me.data.slice(0, i)));
+                return left;
+            })
+            .attr("x", me.bar_width + 8)
+            .attr("dy", ".35em")
             .attr("dx", ".35em")
             .text(function(d) { return d; });
     },

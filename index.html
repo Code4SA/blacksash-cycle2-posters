@@ -5,9 +5,11 @@
     </head>
     <body>
         <svg class="chart"></svg>
-        <svg class="chart2" style="border:solid thin black"></svg>
+        <svg class="chart2"></svg>
+        <svg class="chart3"></svg>
         <script src="d3.v3.js"></script>
         <script src="bars.js"></script>
+
         <script>
             hb = new HorizontalStackedBars(d3.select('.chart'), [10, 20, 30], {
                 width: 420,
@@ -21,6 +23,11 @@
                 flip: false
             })
 
+            vb = new VerticalStackedBars(d3.select('.chart3'), [10, 20, 30], {
+                height: 420,
+                width: 100,
+                bar_width: 50
+            })
 
         </script>
     </body>
