@@ -3,7 +3,7 @@ var data = {
     location : 'Mbombela',
     q2 : {
         women : {
-            2014 : [10, 20, 30],
+            2014 : [90, 20, 30],
             2015 : [40, 50, 66],
         },
         men : {
@@ -30,7 +30,7 @@ var place_type1_bar_small = function(node, data, width_scale) {
     var total = d3.sum(data);
     new HorizontalStackedBars(node, data, {
         width: width_scale(total),
-        height: 100,
+        height: small_bar_height,
         bar_height: small_bar_height
     })
     node.selectAll('.barseg text').remove();
