@@ -1,136 +1,3 @@
-var data = {
-    name : 'XYZ Office',
-    location : 'Mbombela',
-    participants : {
-        "2015" : {
-            total : 100,
-            female : 75,
-            male : 25
-        },
-        "2014" : {
-            total : 56,
-            female : 36,
-            male : 20
-        },
-    },
-    q1 : [
-        { women : [10, 100], men : [30, 80] },
-        { women : [20, 90], men : [16, 15] },
-        { women : [30, 80], men : [16, 15] },
-        { women : [40, 70], men : [16, 15] },
-        { women : [50, 60], men : [16, 15] },
-        { women : [60, 50], men : [16, 15] },
-        { women : [70, 40], men : [16, 15] },
-        { women : [80, 30], men : [16, 15] },
-    ],
-    q2 : {
-        women : {
-            2014 : [90, 20, 30],
-            2015 : [40, 50, 66],
-        },
-        men : {
-            2014 : [70, 80, 90],
-            2015 : [100, 110, 120],
-        },
-    },
-    q3 : {
-        women : {
-            2014 : [90, 0, 30],
-            2015 : [40, 0, 66],
-        },
-        men : {
-            2014 : [70, 0, 90],
-            2015 : [100, 0, 120],
-        },
-    },
-    q4 : {
-        women : {
-            2014 : [90, 0, 30],
-            2015 : [40, 0, 66],
-        },
-        men : {
-            2014 : [70, 0, 90],
-            2015 : [100, 0, 120],
-        },
-    },
-    q5 : {
-        women : {
-            2014 : [90, 0, 30],
-            2015 : [40, 0, 66],
-        },
-        men : {
-            2014 : [70, 0, 90],
-            2015 : [100, 0, 120],
-        },
-    },
-    q6 : {
-        women : {
-            2014 : [90, 0, 30],
-            2015 : [40, 0, 66],
-        },
-        men : {
-            2014 : [70, 0, 90],
-            2015 : [100, 0, 120],
-        },
-    },
-    q7 : [
-        { women : [10, 100], men : [30, 80] },
-        { women : [20, 90], men : [16, 15] },
-        { women : [30, 80], men : [16, 15] },
-        { women : [40, 70], men : [32, 11] },
-        { women : [50, 60], men : [16, 15] },
-        { women : [60, 50], men : [16, 15] },
-    ],
-    q8 : [
-        { women : [10, 100], men : [30, 80] },
-        { women : [40, 70], men : [16, 15] },
-        { women : [50, 60], men : [16, 15] },
-        { women : [60, 50], men : [16, 15] },
-        { women : [70, 40], men : [16, 15] },
-        { women : [80, 30], men : [16, 15] },
-    ],
-    q9 : {
-        women : {
-            2014 : [90, 20, 30],
-            2015 : [40, 70, 66],
-        },
-        men : {
-            2014 : [70, 80, 90],
-            2015 : [100, 110, 120],
-        },
-    },
-    q10 : {
-        women : {
-            2014 : [90, 20, 30],
-            2015 : [40, 70, 66],
-        },
-        men : {
-            2014 : [70, 80, 90],
-            2015 : [100, 110, 120],
-        },
-    },
-    q11 : {
-        women : {
-            2014 : [390, 20, 30],
-            2015 : [90, 100, 110],
-        },
-        men : {
-            2014 : [70, 80, 90],
-            2015 : [110, 100, 90],
-        },
-    },
-    q12 : {
-        women : {
-            2014 : [90, 20, 30],
-            2015 : [40, 70, 66],
-        },
-        men : {
-            2014 : [70, 80, 90],
-            2015 : [100, 110, 120],
-        },
-    },
-}
-
 var big_bar_height = 62;
 var small_bar_height = 13;
 var big_bar_width = 62;
@@ -230,10 +97,10 @@ var place_type3_question = function(node, data, ctx) {
     node.selectAll('.demo-contents').remove();
 
     x = d3.scale.linear().domain([0, max_val]).range([0, width]);
-    var women_nodes = node.selectAll("g.women")
+    var women_nodes = node.selectAll('g.women')
         .data(data)
 
-    var men_nodes = node.selectAll("g.men")
+    var men_nodes = node.selectAll('g.men')
         .data(data)
 
     women_nodes.each(function(d, i) {
@@ -257,7 +124,7 @@ var place_type3_question = function(node, data, ctx) {
     })
 }
 
-var place_elements = function(node) {
+var place_elements = function(node, data) {
     node.selectAll('#organisation-name tspan').text(data['name']);
     node.selectAll('#office-location').text(data['location']);
     node.selectAll('#participants-2015 .total').text(data['participants']['2015']['total']);

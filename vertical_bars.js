@@ -13,10 +13,13 @@ VerticalStackedBars.prototype = {
     draw : function() {
         var me = this;
 
-        _chunk_height = function(el, i) {
-            var index = me.data.length - i;
-            var sub = me.data.slice(0, index);
+        var _chunk_height = function(d, i) {
+            var sub = me.data.slice(i, me.data.length);
             return y(d3.sum(sub))
+        }
+
+        var _chunk_translate = function(d, i) {
+            return -y(d3.sum(me.data))
         }
 
         var y = d3.scale.linear()
@@ -27,11 +30,11 @@ VerticalStackedBars.prototype = {
             .data(this.data)
             .enter()
             .append("g")
-                .attr("class", function(el, i) {
+                .attr("class", function(d, i) {
                     return me.class_prefix + " " + me.class_prefix + "_" + i;
                 })
-                .attr("transform", function(el, i) {
-                    return "translate(0, " + -1 * _chunk_height(el, i) + ")";
+                .attr("transform", function(d, i) {
+                    return "translate(0, " + -y(d3.sum(me.data)) + ")";
                 });
 
         bar.append("rect")
@@ -40,7 +43,10 @@ VerticalStackedBars.prototype = {
 
         bar.append("text")
             .attr("y", function(d, i) {
-                return y(me.data[me.data.length - i - 1]) / 2;
+                return -y(d3.sum(me.data.slice(0, i)) + me.data[i] / 2);
+            })
+            .attr("transform", function() {
+                return "translate(0, " + y(d3.sum(me.data)) + ")";
             })
             .attr("x", me.bar_width + 1)
             .attr("dy", ".35em")

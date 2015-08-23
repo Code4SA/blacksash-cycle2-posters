@@ -48,12 +48,12 @@
     fill: #F4991F;
 }
 
-#q9 .barseg_0 rect, #q10 .barseg_0 rect {
+#q9 .barseg_0 rect, #q10 .barseg_0 rect, #q11 .barseg_0 rect, #q12 .barseg_0 rect {
     fill: black;
     stroke: black;
 }
 
-#q9 .barseg_2 rect, #q10 .barseg_2 rect {
+#q9 .barseg_2 rect, #q10 .barseg_2 rect, #q11 .barseg_2 rect, #q12 .barseg_2 rect {
     fill: #F4991F;
     stroke: #F4991F;
 }

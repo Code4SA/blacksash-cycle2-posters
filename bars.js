@@ -77,10 +77,12 @@ HorizontalBars.prototype = {
     draw : function() {
         var me = this;
         var max_data = d3.max(this.data);
+        var min_ratio_threshold = 0.5;
+        var range = this.width - this.label_space - this.label_width;
+        if (range < 0) range = this.width;
         var x = d3.scale.linear()
-            .domain([0, d3.max(this.data)])
-            .range([0, this.width - this.label_space - this.label_width]);
-
+            .domain([0, max_data])
+            .range([0, range])
 
         var y = d3.scale.linear()
             .domain([0, 1])
@@ -90,38 +92,45 @@ HorizontalBars.prototype = {
             .data(this.data)
             .enter()
             .append("g")
-                .attr("class", function(d, i) {
-                    return me.class_prefix + " " + me.class_prefix + "_" + i;
-                })
-                .attr("transform", function(d, i) {
-                    if (me.flip) {
-                        return "translate(" +  -x(d) + ", " + y(i) + ")"
-                    } else {
-                        return "translate(0, " + y(i) + ")"
+                .each(function(d, i) {
+                    var me2 = d3.select(this);
+                    if (d > 0) {
+                        me2.attr("class", function(d) {
+                            return me.class_prefix + " " + me.class_prefix + "_" + i;
+                        })
+                        me2.attr("transform", function(d) {
+                            if (me.flip) {
+                                return "translate(" +  -x(d) + ", " + y(i) + ")"
+                            } else {
+                                return "translate(0, " + y(i) + ")"
+                            }
+                        })
+                        me2.append("rect")
+                            .attr("width", function(d) {
+                                if (d / max_data < min_ratio_threshold) {
+                                    d = max_data * min_ratio_threshold;
+                                }
+                                return x(d);
+                            })
+                            .attr("height", function(d) {
+                                return me.heights[i];
+                            });
+
+                        me2.append("text")
+                            .attr("x", function(d) {
+                                if (me.flip) {
+                                    return -me.label_space;
+                                } else {
+                                    return x(d) + me.label_space;
+                                }
+                            })
+                            .attr("y", function(d) {
+                                return me.heights[i] / 2;
+                            })
+                            .attr("dy", "+.35em")
+                            .text(function(d) { return d; });
                     }
-                })
-
-        bar.append("rect")
-            .attr("width", function(d, i) { return x(d); })
-            .attr("height", function(d, i) {
-                return me.heights[i];
-            });
-
-        bar.append("text")
-            .attr("x", function(d, i) {
-                if (me.flip) {
-                    return -me.label_space;
-                } else {
-                    return x(d) + me.label_space;
-                }
             })
-            .attr("y", function(d, i) {
-                return me.heights[i] / 2;
-            })
-            .attr("dy", "+.35em")
-            .text(function(d) { return d; });
-
-        
     }    
 }
 
