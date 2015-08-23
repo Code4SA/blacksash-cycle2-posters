@@ -61,6 +61,22 @@ var data = {
             2015 : [100, 0, 120],
         },
     },
+    q7 : [
+        { women : [10, 100], men : [30, 80] },
+        { women : [20, 90], men : [16, 15] },
+        { women : [30, 80], men : [16, 15] },
+        { women : [40, 70], men : [32, 11] },
+        { women : [50, 60], men : [16, 15] },
+        { women : [60, 50], men : [16, 15] },
+    ],
+    q8 : [
+        { women : [10, 100], men : [30, 80] },
+        { women : [40, 70], men : [16, 15] },
+        { women : [50, 60], men : [16, 15] },
+        { women : [60, 50], men : [16, 15] },
+        { women : [70, 40], men : [16, 15] },
+        { women : [80, 30], men : [16, 15] },
+    ],
     q9 : {
         women : {
             2014 : [90, 20, 30],
@@ -188,7 +204,11 @@ var place_type2_question = function(node, data) {
 
 }
 
-var place_type3_question = function(node, data) {
+var place_type3_question = function(node, data, ctx) {
+    if (!ctx) ctx = {};
+    height = ctx.height || 32;
+    height1 = ctx.height1 || 22;
+    width = ctx.width || 320;
 
     var max_val = d3.max(data, function(d) {
         return d3.max([
@@ -197,7 +217,7 @@ var place_type3_question = function(node, data) {
     });
     node.selectAll('.demo-contents').remove();
 
-    x = d3.scale.linear().domain([0, max_val]).range([0, 320]);
+    x = d3.scale.linear().domain([0, max_val]).range([0, width]);
     var women_nodes = node.selectAll("g.women")
         .data(data)
 
@@ -207,8 +227,8 @@ var place_type3_question = function(node, data) {
     women_nodes.each(function(d, i) {
         hb = new HorizontalBars(d3.select(this), d.women, {
             width: x(d3.max(d.women)),
-            height: 32,
-            height1: 22,
+            height: height,
+            height1: height1,
             label_space: 6,
             flip: false
         })
@@ -217,32 +237,12 @@ var place_type3_question = function(node, data) {
     men_nodes.each(function(d, i) {
         hb = new HorizontalBars(d3.select(this), d.men, {
             width: x(d3.max(d.men)),
-            height: 32,
-            height1: 22,
+            height: height,
+            height1: height1,
             label_space: 6,
             flip: true
         })
     })
-        
-        
-    /*
-    var wtotal_2015 = d3.sum(data.women['2015'])
-    var wtotal_2014 = d3.sum(data.women['2014'])
-    var mtotal_2015 = d3.sum(data.men['2015'])
-    var mtotal_2014 = d3.sum(data.men['2014'])
-
-    var height_scale = d3.scale.linear()
-        .domain([0, d3.max([wtotal_2014, wtotal_2015, mtotal_2014, mtotal_2015])])
-        .range([0, bar_height])
-
-    node.selectAll('.demo-contents').remove();
-
-    place_type2_bar(node.select('.women-2015'), data.women['2015'], height_scale);
-    place_type2_bar(node.select('.men-2015'), data.men['2015'], height_scale);
-    place_type2_bar_small(node.select('.women-2014'), data.women['2014'], height_scale);
-    place_type2_bar_small(node.select('.men-2014'), data.men['2014'], height_scale);
-    */
-
 }
 
 var place_elements = function(node) {
@@ -255,6 +255,7 @@ var place_elements = function(node) {
     place_type1_question(node.select('#q4'), data.q4);
     place_type1_question(node.select('#q5'), data.q5);
     place_type1_question(node.select('#q6'), data.q6);
+    place_type3_question(node.select('#q7'), data.q7, { height:48, height1: 32, width:150 });
     place_type2_question(node.select('#q9'), data.q9);
     place_type2_question(node.select('#q10'), data.q10);
     place_type2_question(node.select('#q11'), data.q11);
