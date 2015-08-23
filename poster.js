@@ -1,6 +1,16 @@
 var data = {
     name : 'XYZ Office',
     location : 'Mbombela',
+    q1 : [
+        { women : [10, 100], men : [30, 80] },
+        { women : [20, 90], men : [16, 15] },
+        { women : [30, 80], men : [16, 15] },
+        { women : [40, 70], men : [16, 15] },
+        { women : [50, 60], men : [16, 15] },
+        { women : [60, 50], men : [16, 15] },
+        { women : [70, 40], men : [16, 15] },
+        { women : [80, 30], men : [16, 15] },
+    ],
     q2 : {
         women : {
             2014 : [90, 20, 30],
@@ -178,11 +188,68 @@ var place_type2_question = function(node, data) {
 
 }
 
+var place_type3_question = function(node, data) {
+
+    var max_val = d3.max(data, function(d) {
+        return d3.max([
+            d3.max(d.women), d3.max(d.men)
+        ])
+    });
+    node.selectAll('.demo-contents').remove();
+
+    x = d3.scale.linear().domain([0, max_val]).range([0, 320]);
+    var women_nodes = node.selectAll("g.women")
+        .data(data)
+
+    var men_nodes = node.selectAll("g.men")
+        .data(data)
+
+    women_nodes.each(function(d, i) {
+        hb = new HorizontalBars(d3.select(this), d.women, {
+            width: x(d3.max(d.women)),
+            height: 32,
+            height1: 22,
+            label_space: 6,
+            flip: false
+        })
+    })
+
+    men_nodes.each(function(d, i) {
+        hb = new HorizontalBars(d3.select(this), d.men, {
+            width: x(d3.max(d.men)),
+            height: 32,
+            height1: 22,
+            label_space: 6,
+            flip: true
+        })
+    })
+        
+        
+    /*
+    var wtotal_2015 = d3.sum(data.women['2015'])
+    var wtotal_2014 = d3.sum(data.women['2014'])
+    var mtotal_2015 = d3.sum(data.men['2015'])
+    var mtotal_2014 = d3.sum(data.men['2014'])
+
+    var height_scale = d3.scale.linear()
+        .domain([0, d3.max([wtotal_2014, wtotal_2015, mtotal_2014, mtotal_2015])])
+        .range([0, bar_height])
+
+    node.selectAll('.demo-contents').remove();
+
+    place_type2_bar(node.select('.women-2015'), data.women['2015'], height_scale);
+    place_type2_bar(node.select('.men-2015'), data.men['2015'], height_scale);
+    place_type2_bar_small(node.select('.women-2014'), data.women['2014'], height_scale);
+    place_type2_bar_small(node.select('.men-2014'), data.men['2014'], height_scale);
+    */
+
+}
+
 var place_elements = function(node) {
     node.selectAll('#organisation-name tspan').text(data['name']);
     node.selectAll('#office-location').text(data['location']);
 
-    console.log(node.select('#q2'));
+    place_type3_question(node.select('#q1'), data.q1);
     place_type1_question(node.select('#q2'), data.q2);
     place_type1_question(node.select('#q3'), data.q3);
     place_type1_question(node.select('#q4'), data.q4);

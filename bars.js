@@ -13,7 +13,7 @@ HorizontalStackedBars.prototype = {
     draw : function() {
         var me = this;
 
-        _chunk_width = function(el, i) {
+        _chunk_width = function(d, i) {
             var index = me.data.length - i - 1;
             var sub = me.data.slice(0, index + 1);
             return x(d3.sum(sub))
@@ -28,7 +28,7 @@ HorizontalStackedBars.prototype = {
             .data(this.data)
             .enter()
             .append("g")
-                .attr("class", function(el, i) {
+                .attr("class", function(d, i) {
                     return me.class_prefix + " " + me.class_prefix + "_" + i;
                 })
                 .attr("transform", "translate(0, " + (me.height - me.bar_height) / 2 + ")")
@@ -86,40 +86,33 @@ HorizontalBars.prototype = {
             .domain([0, 1])
             .range([0, this.height1]);
 
-        this.node 
-            .attr("width", this.width)
-            .attr("height", this.height);
-
         var bar = this.node.selectAll("g")
             .data(this.data)
             .enter()
             .append("g")
-                .attr("class", function(el, i) {
+                .attr("class", function(d, i) {
                     return me.class_prefix + " " + me.class_prefix + "_" + i;
                 })
-                .attr("transform", function(el, i) {
+                .attr("transform", function(d, i) {
                     if (me.flip) {
-                        return "translate(" + (me.width - x(el)) + ", " + y(i) + ")"
+                        return "translate(" +  -x(d) + ", " + y(i) + ")"
                     } else {
                         return "translate(0, " + y(i) + ")"
                     }
                 })
 
         bar.append("rect")
-            .attr("width", function(el, i) { return x(el); })
-            .attr("height", function(el, i) {
+            .attr("width", function(d, i) { return x(d); })
+            .attr("height", function(d, i) {
                 return me.heights[i];
             });
 
         bar.append("text")
             .attr("x", function(d, i) {
                 if (me.flip) {
-                    console.log(d);
-                    console.log(x(d));
-                    console.log(me.width - x(d) - me.label_space - me.label_width);
                     return -me.label_space;
                 } else {
-                    return x(d) + me.label_space + me.label_width;
+                    return x(d) + me.label_space;
                 }
             })
             .attr("y", function(d, i) {
