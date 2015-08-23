@@ -1,6 +1,6 @@
 .barseg text {
   fill: black;
-  font: 12px 'HelveticaNeueLTStd-Lt';
+  font: 12px 'Helvetica Neue';
   text-anchor: end;
 }
 
@@ -31,5 +31,12 @@
     fill: #F4991F;
 }
 
-.bar rect {
+#q9 .barseg_0 rect, #q10 .barseg_0 rect {
+    fill: black;
+    stroke: black;
+}
+
+#q9 .barseg_2 rect, #q10 .barseg_2 rect {
+    fill: #F4991F;
+    stroke: #F4991F;
 }
