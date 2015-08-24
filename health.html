@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div id="poster"></div>
+        <script src="d3.v3.js"></script>
+        <script src="papaparse.min.js"></script>
+        <script src="bars.js"></script>
+        <script src="vertical_bars.js"></script>
+        <script src="parse.js"></script>
+        <script src="poster.js"></script>
+        <script>
+
+
+        var idx = 2;
+        function getQueryVariable(variable)
+        {
+               var query = window.location.search.substring(1);
+               var vars = query.split('&');
+               for (var i=0;i<vars.length;i++) {
+                       var pair = vars[i].split('=');
+                       if(pair[0] == variable){return pair[1];}
+               }
+               return(false);
+        }
+        var idx = parseInt(getQueryVariable('idx'))
+
+        d3.xml('sassa.svg', function(xml) {
+            Papa.parse('sassa_citizen.csv', {
+                download: true,
+                complete: function(result) {
+                    var data = result.data;
+                    var json = convert_to_json(data, idx);
+                    console.log(json);
+                    var importedNode = document.importNode(xml.documentElement, true);
+                    var poster = d3.selectAll('#poster')[0][0].appendChild(importedNode.cloneNode(true));
+                    place_elements(d3.select('#poster'), json);
+                }
+            })
+        })
+        </script>
+
+    </body>
+</html>
+
