@@ -51,7 +51,11 @@ VerticalStackedBars.prototype = {
             .attr("x", me.bar_width + 1)
             .attr("dy", ".35em")
             .style("text-anchor", "start")
-            .text(function(d) { return d; });
+            .text(function(d) {
+                if (d > 0)
+                    return d;
+                return "";
+            });
     },
 }
 

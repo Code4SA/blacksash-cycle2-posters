@@ -1,0 +1,9 @@
+#q9 .men .bar_0 rect, #q10 .men rect {
+    fill: white;
+    stroke: black;
+    stroke-width: 0.6px;
+}
+
+#q9 .men text, #q10 .men text {
+    text-anchor: end;
+}
