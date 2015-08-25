@@ -36,9 +36,9 @@
      inkscape:window-height="704"
      id="namedview19858"
      showgrid="false"
-     inkscape:zoom="14.481547"
-     inkscape:cx="1421.7906"
-     inkscape:cy="1127.8163"
+     inkscape:zoom="1.28"
+     inkscape:cx="151.47654"
+     inkscape:cy="1014.4442"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -5318,14 +5318,7 @@
        d="m 196.872,1500.646 c 0.036,1.163 0.912,1.943 2.063,1.943 1.295,0 2.099,-1.068 2.099,-2.291 0,-1.236 -0.9,-2.184 -2.147,-2.184 -0.743,0 -1.463,0.36 -1.871,0.996 l -0.648,0 0.816,-4.354 4.198,0 0,0.695 -3.67,0 -0.54,2.782 0.024,0.024 c 0.42,-0.492 1.127,-0.779 1.775,-0.779 1.727,0 2.819,1.211 2.819,2.902 0,1.643 -1.307,2.842 -2.915,2.842 -1.559,0 -2.722,-0.983 -2.759,-2.578 l 0.756,0 z"
        id="path18195"
        inkscape:connector-curvature="0" /></g><g
-     id="g18199"><rect
-       x="184.61501"
-       y="1283.075"
-       class="st40"
-       width="17.559999"
-       height="25.938999"
-       id="rect18201"
-       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd" /><g
+     id="g18199"><g
        id="g18203" /></g><g
      id="g18209"><rect
        x="184.61501"
@@ -5336,14 +5329,7 @@
        id="rect18211"
        style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd" /><g
        id="g18213" /></g><g
-     id="g18219"><rect
-       x="184.61501"
-       y="1373.601"
-       class="st40"
-       width="17.559999"
-       height="25.940001"
-       id="rect18221"
-       style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd" /><g
+     id="g18219"><g
        id="g18223" /></g><g
      id="g18231"><rect
        x="79.231003"
@@ -7634,7 +7620,7 @@
                id="text35799"
                style="font-size:12px;font-family:HelveticaNeueLTStd-Lt">100</text>
 </g></g></g><g
-         transform="translate(-60.544999,40.140109)"
+         transform="translate(-60.544999,45.354209)"
          class="men"
          id="g35801"><g
            transform="translate(-688.19375,-1063.8755)"
@@ -7663,7 +7649,7 @@
 </g></g></g><g
          id="g35813"
          class="men"
-         transform="translate(-60.544999,80.161109)"><g
+         transform="translate(-60.544999,90.618209)"><g
            class="demo-contents"
            id="g35815"
            transform="translate(-688.19375,-1063.8755)"><g
@@ -7688,7 +7674,7 @@
                id="text35823"
                style="font-size:12px;font-family:HelveticaNeueLTStd-Lt">100</text>
 </g></g></g><g
-         transform="translate(-60.544999,119.44311)"
+         transform="translate(-60.544999,135.04621)"
          class="men"
          id="g35825"><g
            transform="translate(-688.19375,-1063.8755)"

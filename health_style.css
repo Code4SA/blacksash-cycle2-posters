@@ -1,4 +1,38 @@
-#q9 .men .bar_0 rect, #q10 .men rect {
+#q1 .barseg_0 rect,
+#q2 .barseg_0 rect,
+#q3 .barseg_0 rect,
+#q4 .barseg_0 rect,
+#q5 .barseg_0 rect,
+#q13 .barseg_0 rect,
+#q14 .barseg_0 rect,
+#q15 .barseg_0 rect,
+#q16 .barseg_0 rect,
+#q17 .barseg_0 rect,
+#q18 .barseg_0 rect,
+#q19 .barseg_0 rect
+{
+    fill: black;
+    stroke: black;
+}
+
+#q1 .barseg_2 rect,
+#q2 .barseg_2 rect,
+#q3 .barseg_2 rect,
+#q4 .barseg_2 rect,
+#q5 .barseg_2 rect,
+#q13 .barseg_2 rect,
+#q14 .barseg_2 rect,
+#q15 .barseg_2 rect,
+#q16 .barseg_2 rect,
+#q17 .barseg_2 rect,
+#q18 .barseg_2 rect,
+#q19 .barseg_2 rect
+{
+    fill: #F4991F;
+    stroke: #F4991F;
+}
+
+#q9 .men .bar_0 rect, #q10 .men .bar_0 rect {
     fill: white;
     stroke: black;
     stroke-width: 0.6px;
@@ -6,4 +40,8 @@
 
 #q9 .men text, #q10 .men text {
     text-anchor: end;
+}
+
+#q9 .bar_1 text, #q10 .bar_1 text {
+    display: none;
 }

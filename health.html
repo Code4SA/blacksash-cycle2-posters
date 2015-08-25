@@ -21,7 +21,7 @@
         var idx = parseInt(getQueryVariable('idx'))
 
         d3.xml('health.svg', function(xml) {
-            Papa.parse('sassa_citizen.csv', {
+            Papa.parse('health.csv', {
                 download: true,
                 complete: function(result) {
                     var data = result.data;
