@@ -7,7 +7,7 @@
     <body>
         <div id="poster"></div>
         <script src="d3.v3.js"></script>
-        <script src="papaparse.min.js"></script>
+        <script src="papaparse.js"></script>
         <script src="parameters.js"></script>
         <script src="bars.js"></script>
         <script src="misc.js"></script>
@@ -19,6 +19,10 @@
 
         var idx = 2;
         var idx = parseInt(getQueryVariable('idx'))
+/*.
+var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", "file://d:/data.txt", true);
+*/
 
         d3.xml('health.svg', function(xml) {
             Papa.parse('health.csv', {

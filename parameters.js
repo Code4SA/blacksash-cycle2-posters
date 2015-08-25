@@ -9,7 +9,7 @@ var big_bar_width = 62;
 var small_bar_width = 10;
 var bar_width = 596;
 
-var parter_map = {
+partner_map = {
     "Folweni" : "Folweni",
     "Port St Johns" : "Port St Johns Advice Office",
     "Thabong" : "Justice & Peace",

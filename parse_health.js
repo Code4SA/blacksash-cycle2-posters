@@ -15,7 +15,7 @@ var row3_template = function(start_row, index_offset) {
 }
 
 var parse2_template = function(start_row) {
-    return {
+    var json = {
         men : {
             2014 : row2_template(start_row, cm_2014),
             2015 : row2_template(start_row, cm_2015),
@@ -25,6 +25,7 @@ var parse2_template = function(start_row) {
             2015 : row2_template(start_row, cf_2015),
         },
     }
+    return json 
 }
 
 var parse3_template = function(start_row) {
@@ -45,8 +46,8 @@ var convert_to_json = function(data, idx) {
         return parseInt(data[r][c]);
     }
 
-    return {
-        name : parter_map[data[0][idx]],
+    var json = {
+        name : partner_map[data[0][idx]],
         location : data[0][idx],
         participants : {
             '2015' : {
@@ -156,4 +157,5 @@ var convert_to_json = function(data, idx) {
         q18 : parse3_template(80),
         q19 : parse3_template(84),
     }
+    return json
 }
