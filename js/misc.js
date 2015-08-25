@@ -1,3 +1,18 @@
+function sum_rows(col, from, to) {
+    var total = 0;
+    for (var i = from; i < to; i++) {
+        total += get_num(i, col);
+    }
+    return total;
+}
+
+function old_and_new(row, idx) {
+    return {
+        women : [get_num(row, idx + cf_2015), get_num(row, idx + cf_2014)],
+        men : [get_num(row, idx + cm_2015), get_num(row, idx + cm_2014)],
+    }
+}
+
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);
@@ -7,6 +22,48 @@ function getQueryVariable(variable)
                if(pair[0] == variable){return pair[1];}
        }
        return(false);
+}
+
+var row2_template = function(start_row, index_offset) {
+    return [
+        get_num(start_row, idx + index_offset),
+        0,
+        get_num(start_row + 1, idx + index_offset)
+    ].reverse()
+}
+
+var row3_template = function(start_row, index_offset) {
+    return [
+        get_num(start_row, idx + index_offset),
+        get_num(start_row + 1, idx + index_offset),
+        get_num(start_row + 2, idx + index_offset)]
+}
+
+var parse2_template = function(start_row) {
+    var json = {
+        men : {
+            2014 : row2_template(start_row, cm_2014),
+            2015 : row2_template(start_row, cm_2015),
+        },
+        women : {
+            2014 : row2_template(start_row, cf_2014),
+            2015 : row2_template(start_row, cf_2015),
+        },
+    }
+    return json 
+}
+
+var parse3_template = function(start_row) {
+    return {
+        men : {
+            2014 : row3_template(start_row, cm_2014),
+            2015 : row3_template(start_row, cm_2015),
+        },
+        women : {
+            2014 : row3_template(start_row, cf_2014),
+            2015 : row3_template(start_row, cf_2015),
+        },
+    }
 }
 
 var place_type1_bar = function(node, data, width_scale) {
@@ -51,7 +108,6 @@ var place_type1_question = function(node, data) {
 
 var place_type2_bar = function(node, data, height_scale) {
     var total = d3.sum(data);
-    console.log(node);
     new VerticalStackedBars(node, data, {
         height: height_scale(total),
         width: 100,

@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/health_style.css"/>
+        <link rel="stylesheet" href="css/paypoint_style.css"/>
     </head>
     <body>
         <div id="poster"></div>
@@ -12,20 +12,16 @@
         <script src="js/bars.js"></script>
         <script src="js/misc.js"></script>
         <script src="js/vertical_bars.js"></script>
-        <script src="js/parse_health.js"></script>
-        <script src="js/poster_health.js"></script>
+        <script src="js/parse_paypoint.js"></script>
+        <script src="js/poster_paypoint.js"></script>
         <script>
 
 
         var idx = 2;
         var idx = parseInt(getQueryVariable('idx'))
-/*.
-var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", "file://d:/data.txt", true);
-*/
 
-        d3.xml('svg/health.svg', function(xml) {
-            Papa.parse('css/health.csv', {
+        d3.xml('svg/paypoints.svg', function(xml) {
+            Papa.parse('csv/paypoint.csv', {
                 download: true,
                 complete: function(result) {
                     var data = result.data;

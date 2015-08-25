@@ -107,9 +107,6 @@ HorizontalBars.prototype = {
                         })
                         me2.append("rect")
                             .attr("width", function(d) {
-                                if (d / max_data < min_ratio_threshold) {
-                                    d = max_data * min_ratio_threshold;
-                                }
                                 return x(d);
                             })
                             .attr("height", function(d) {

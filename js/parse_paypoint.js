@@ -1,45 +1,4 @@
 var get_num;
-var row2_template = function(start_row, index_offset) {
-    return [
-        get_num(start_row, idx + index_offset),
-        0,
-        get_num(start_row + 1, idx + index_offset)
-    ].reverse()
-}
-
-var row3_template = function(start_row, index_offset) {
-    return [
-        get_num(start_row, idx + index_offset),
-        get_num(start_row + 1, idx + index_offset),
-        get_num(start_row + 2, idx + index_offset)]
-}
-
-var parse2_template = function(start_row) {
-    var json = {
-        men : {
-            2014 : row2_template(start_row, cm_2014),
-            2015 : row2_template(start_row, cm_2015),
-        },
-        women : {
-            2014 : row2_template(start_row, cf_2014),
-            2015 : row2_template(start_row, cf_2015),
-        },
-    }
-    return json 
-}
-
-var parse3_template = function(start_row) {
-    return {
-        men : {
-            2014 : row3_template(start_row, cm_2014),
-            2015 : row3_template(start_row, cm_2015),
-        },
-        women : {
-            2014 : row3_template(start_row, cf_2014),
-            2015 : row3_template(start_row, cf_2015),
-        },
-    }
-}
 
 var convert_to_json = function(data, idx) {
     get_num = function(r, c) {
@@ -52,110 +11,54 @@ var convert_to_json = function(data, idx) {
         participants : {
             '2015' : {
                 total : get_num(2, idx + 2),
-                female : get_num(7, idx + cf_2015) + get_num(8, idx + cf_2015),
-                male : get_num(7, idx + cm_2015) + get_num(8, idx + cm_2015)
+                female : sum_rows(idx + cf_2015, 7, 12),
+                male : sum_rows(idx + cm_2015, 7, 12),
             },
             '2014' : {
                 total : get_num(2, idx + 2),
-                female : get_num(7, idx + cf_2014) + get_num(8, idx + cf_2014),
-                male : get_num(7, idx + cm_2014) + get_num(8, idx + cm_2014)
+                female : sum_rows(idx + cf_2014, 7, 12),
+                male : sum_rows(idx + cm_2014, 7, 12),
             },
         },
-        q1 : parse2_template(7),
-        q2 : parse3_template(10),
-        q3 : parse3_template(14),
-        q4 : parse3_template(18),
-        q5 : parse2_template(22),
-        q6 : parse3_template(26),
-        q7 : [{
-                women : [get_num(30, idx + cf_2015), get_num(30, idx + cf_2014)],
-                men : [get_num(30, idx + cm_2015), get_num(30, idx + cm_2014)],
-            },
-            {
-                women : [get_num(31, idx + cf_2015), get_num(31, idx + cf_2014)],
-                men : [get_num(31, idx + cm_2015), get_num(31, idx + cm_2014)],
-            },
-            {
-                women : [get_num(32, idx + cf_2015), get_num(32, idx + cf_2014)],
-                men : [get_num(32, idx + cm_2015), get_num(32, idx + cm_2014)],
-            },
-            {
-                women : [get_num(33, idx + cf_2015), get_num(33, idx + cf_2014)],
-                men : [get_num(33, idx + cm_2015), get_num(33, idx + cm_2014)],
-            },
+        q1 : [
+                old_and_new(43, idx),
+                old_and_new(44, idx),
+                old_and_new(45, idx),
+                old_and_new(46, idx),
+                old_and_new(47, idx),
+                old_and_new(48, idx),
+                old_and_new(49, idx),
+                old_and_new(50, idx),
         ],
-        q8 : [{
-                women : [get_num(36, idx + cf_2015), get_num(36, idx + cf_2014)],
-                men : [get_num(36, idx + cm_2015), get_num(36, idx + cm_2014)],
-            },
-            {
-                women : [get_num(38, idx + cf_2015), get_num(38, idx + cf_2014)],
-                men : [get_num(38, idx + cm_2015), get_num(38, idx + cm_2014)],
-            },
-            {
-                women : [get_num(39, idx + cf_2015), get_num(39, idx + cf_2014)],
-                men : [get_num(39, idx + cm_2015), get_num(39, idx + cm_2014)],
-            },
-            {
-                women : [get_num(37, idx + cf_2015), get_num(37, idx + cf_2014)],
-                men : [get_num(37, idx + cm_2015), get_num(37, idx + cm_2014)],
-            },
-            {
-                women : [get_num(40, idx + cf_2015), get_num(40, idx + cf_2014)],
-                men : [get_num(40, idx + cm_2015), get_num(40, idx + cm_2014)],
-            },
+        q2 : [
+                old_and_new(15, idx),
+                old_and_new(14, idx),
+                old_and_new(18, idx),
+                old_and_new(16, idx),
+                old_and_new(17, idx),
+                old_and_new(19, idx),
         ],
-        q9 : [{
-                women : [get_num(42, idx + cf_2015), get_num(42, idx + cf_2014)],
-                men : [get_num(42, idx + cm_2015), get_num(42, idx + cm_2014)],
-            },
-            {
-                women : [get_num(44, idx + cf_2015), get_num(44, idx + cf_2014)],
-                men : [get_num(44, idx + cm_2015), get_num(44, idx + cm_2014)],
-            },
-            {
-                women : [get_num(45, idx + cf_2015), get_num(45, idx + cf_2014)],
-                men : [get_num(45, idx + cm_2015), get_num(45, idx + cm_2014)],
-            },
-            {
-                women : [get_num(43, idx + cf_2015), get_num(43, idx + cf_2014)],
-                men : [get_num(43, idx + cm_2015), get_num(43, idx + cm_2014)],
-            },
-            {
-                women : [get_num(46, idx + cf_2015), get_num(46, idx + cf_2014)],
-                men : [get_num(46, idx + cm_2015), get_num(46, idx + cm_2014)],
-            },
+        q3 : parse2_template(58),
+        q4 : parse2_template(61),
+        q5 : parse2_template(64),
+        q6 : parse3_template(67),
+        q7 : [
+                old_and_new(9, idx),
+                old_and_new(8, idx),
+                old_and_new(11, idx),
+                old_and_new(7, idx),
+                old_and_new(12, idx),
+                old_and_new(10, idx),
         ],
-        q10 : [{
-                women : [get_num(48, idx + cf_2015), get_num(48, idx + cf_2014)],
-                men : [get_num(48, idx + cm_2015), get_num(48, idx + cm_2014)],
-            },
-            {
-                women : [get_num(50, idx + cf_2015), get_num(50, idx + cf_2014)],
-                men : [get_num(50, idx + cm_2015), get_num(50, idx + cm_2014)],
-            },
-            {
-                women : [get_num(51, idx + cf_2015), get_num(51, idx + cf_2014)],
-                men : [get_num(51, idx + cm_2015), get_num(51, idx + cm_2014)],
-            },
-            {
-                women : [get_num(49, idx + cf_2015), get_num(49, idx + cf_2014)],
-                men : [get_num(49, idx + cm_2015), get_num(49, idx + cm_2014)],
-            },
-            {
-                women : [get_num(52, idx + cf_2015), get_num(52, idx + cf_2014)],
-                men : [get_num(52, idx + cm_2015), get_num(52, idx + cm_2014)],
-            },
-        ],
-        q11 : parse2_template(55),
-        q12 : parse2_template(58),
-        q13 : parse2_template(61),
-        q14 : parse2_template(64),
-        q15 : parse2_template(67),
-        q16 : parse3_template(71),
-        q17 : parse3_template(75),
-        q18 : parse3_template(80),
-        q19 : parse3_template(84),
+        q8 : parse2_template(21),
+        q9 : parse2_template(71),
+        q10 : parse2_template(25),
+        q11 : parse3_template(28),
+        q12 : parse3_template(32),
+        q13 : parse3_template(36),
+        q14 : parse3_template(74),
+        q15 : parse2_template(78),
+        q16 : parse3_template(54),
     }
     return json
 }

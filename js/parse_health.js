@@ -1,45 +1,4 @@
 var get_num;
-var row2_template = function(start_row, index_offset) {
-    return [
-        get_num(start_row, idx + index_offset),
-        0,
-        get_num(start_row + 1, idx + index_offset)
-    ].reverse()
-}
-
-var row3_template = function(start_row, index_offset) {
-    return [
-        get_num(start_row, idx + index_offset),
-        get_num(start_row + 1, idx + index_offset),
-        get_num(start_row + 2, idx + index_offset)]
-}
-
-var parse2_template = function(start_row) {
-    var json = {
-        men : {
-            2014 : row2_template(start_row, cm_2014),
-            2015 : row2_template(start_row, cm_2015),
-        },
-        women : {
-            2014 : row2_template(start_row, cf_2014),
-            2015 : row2_template(start_row, cf_2015),
-        },
-    }
-    return json 
-}
-
-var parse3_template = function(start_row) {
-    return {
-        men : {
-            2014 : row3_template(start_row, cm_2014),
-            2015 : row3_template(start_row, cm_2015),
-        },
-        women : {
-            2014 : row3_template(start_row, cf_2014),
-            2015 : row3_template(start_row, cf_2015),
-        },
-    }
-}
 
 var convert_to_json = function(data, idx) {
     get_num = function(r, c) {

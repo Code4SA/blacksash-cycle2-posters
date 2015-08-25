@@ -15,5 +15,6 @@ partner_map = {
     "Thabong" : "Justice & Peace",
     "Tshwane" : "Tshwane Outreach project",
     "Umlazi" : "Philakathi",
+    "Kaigarieb" : "Siyafunda",
 
 }
