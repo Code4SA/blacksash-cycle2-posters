@@ -11,10 +11,17 @@ var bar_width = 596;
 
 partner_map = {
     "Folweni" : "Folweni",
+    "Gugulethu" : "Gugulethu Advice Office",
+    "Kaigarieb" : "Siyafunda",
+    "Kwa-Mhlanga" : "Qedusizi",
+    "Lephepane" : "Relemogile",
+    "Mahube" : "Mahube",
+    "Mthatha" : "Qunu Advice Office",
+    "Paarl" : "Paarl Advice Office",
     "Port St Johns" : "Port St Johns Advice Office",
     "Thabong" : "Justice & Peace",
     "Tshwane" : "Tshwane Outreach project",
+    "Uitenhage" : "ILDA",
     "Umlazi" : "Philakathi",
-    "Kaigarieb" : "Siyafunda",
-
+    "Utrecht" : "SAVF",
 }

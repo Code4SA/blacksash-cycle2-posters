@@ -4,7 +4,7 @@ var convert_to_json = function(data, idx) {
     }
 
     return {
-        name : 'XYZ Office',
+        name : partner_map[data[0][idx]],
         location : data[0][idx],
         participants : {
             '2015' : {

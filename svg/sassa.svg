@@ -21,10 +21,10 @@
    height="841mm"><sodipodi:namedview
      inkscape:current-layer="g78475"
      inkscape:window-maximized="0"
-     inkscape:window-y="255"
-     inkscape:window-x="21"
-     inkscape:cy="699.2175"
-     inkscape:cx="387.54255"
+     inkscape:window-y="108"
+     inkscape:window-x="19"
+     inkscape:cy="2699.2175"
+     inkscape:cx="887.54255"
      inkscape:zoom="0.64"
      showgrid="false"
      id="namedview10440"
@@ -61,7 +61,7 @@
 	.st1{fill:#FFFFFF;stroke:#000000;stroke-width:0.9668;stroke-miterlimit:10;}
 	.st2{font-size:51.1029;}
 	.st3{fill:none;stroke:#000000;stroke-width:0.6494;stroke-miterlimit:10;}
-	.st4{font-family:'GillSansMT-BoldItalic';}
+	.st4{font-family:'Gill Sans;font-weight:bold;font-style:italic';}
 	.st5{fill:#EC2227;}
 	.st6{fill:#ED2224;}
 	.st7{display:inline;fill:none;stroke:#000000;stroke-width:0.9805;stroke-miterlimit:10;}
@@ -95,11 +95,11 @@
 	.st35{letter-spacing:2;}
 	.st36{font-family:'ArialMT';}
 	.st37{font-family:'Arial-Black';}
-	.st38{font-family:'GillSansMT';}
+	.st38{font-family:'Gill Sans';}
 	.st39{fill:#010101;}
 	.st40{display:inline;fill:none;stroke:#000000;stroke-width:1.0802;stroke-miterlimit:10;}
 	.st41{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-	.st42{font-family:'GillSansMT-Bold';}
+	.st42{font-family:'Gill Sans;font-weight:bold';}
 	.st43{fill:#F4991F;stroke:#F4991F;stroke-width:0.7989;stroke-miterlimit:10;}
 	.st44{fill:#F4991F;stroke:#F4991F;stroke-miterlimit:10;}
 	.st45{fill:#F4991F;stroke:#F4991F;stroke-width:0.5;stroke-miterlimit:10;}
@@ -629,7 +629,7 @@
        id="text8297"
        class="st38 st51"
        transform="matrix(2.633516,0,0,2.633516,53.210302,-1159.9129)"
-       style="font-size:20px;font-family:GillSansMT">HOW MANY TIMES HAVE YOU COME TO THIS OFFICE FOR THE SAME ISSUE?</text>
+       style="font-size:20px;font-family:Gill Sans">HOW MANY TIMES HAVE YOU COME TO THIS OFFICE FOR THE SAME ISSUE?</text>
 <rect
        id="rect8299"
        height="54.563"
@@ -659,12 +659,12 @@
            class="st38 st51"
            y="0"
            x="0"
-           style="font-size:20px;font-family:GillSansMT">DID YOU KNOW BEFORE YOU CAME WHAT DOCUMENTS YOU HAD TO BRING WITH </tspan><tspan
+           style="font-size:20px;font-family:Gill Sans">DID YOU KNOW BEFORE YOU CAME WHAT DOCUMENTS YOU HAD TO BRING WITH </tspan><tspan
            id="tspan8311"
            class="st38 st51"
            y="24"
            x="0"
-           style="font-size:20px;font-family:GillSansMT">YOU?</tspan></text>
+           style="font-size:20px;font-family:Gill Sans">YOU?</tspan></text>
 </g><g
        id="g8313"
        transform="matrix(2.633516,0,0,2.633516,-77.561412,-3354.3544)"><rect
@@ -678,7 +678,7 @@
          id="text8317"
          class="st38 st51"
          transform="translate(50.5957,1446.0986)"
-         style="font-size:20px;font-family:GillSansMT">DID THE STAFF TELL YOU THEIR NAME OR WEAR A NAME TAG?</text>
+         style="font-size:20px;font-family:Gill Sans">DID THE STAFF TELL YOU THEIR NAME OR WEAR A NAME TAG?</text>
 </g><g
        id="g8319"
        transform="matrix(2.633516,0,0,2.633516,-77.561412,-3354.3544)"><rect
@@ -811,14 +811,14 @@
        style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans Bold Italic'"
        id="text8371"
        class="st4 st55"
-       transform="matrix(2.633516,0,0,2.633516,190.84259,-2562.7566)">SASSA Service Office:</text>
+       transform="matrix(2.633516,0,0,2.633516,124.39011,-2562.7566)">SASSA Service Office:</text>
 <text
        class="st4 st55"
        id="office-location"
-       style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:56px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans Bold Italic';text-align:start;text-anchor:start"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans';text-align:start;text-anchor:start;"
        x="685.35254"
        y="300.58591"
-       transform="matrix(2.633516,0,0,2.633516,-285.22541,-3354.3544)">Location Name</text>
+       transform="matrix(2.633516,0,0,2.633516,-160.62701,-3354.3544)">Location Name</text>
 <polygon
        id="polygon8373"
        points="1214.854,74.72 1214.854,222.867 1183.557,243.034 1183.557,34.554 "
@@ -2924,7 +2924,7 @@
            class="st38 st52"
            y="2255.7959"
            x="1232.9672"
-           style="font-size:24px;font-family:GillSansMT;text-align:end;text-anchor:end">PARTICIPANTS:</tspan></text>
+           style="font-size:24px;font-family:Gill Sans;text-align:end;text-anchor:end">PARTICIPANTS:</tspan></text>
 <text
          style="text-align:end;text-anchor:end"
          y="2255.7959"
@@ -2932,7 +2932,7 @@
          id="text68702"><tspan
            y="2277.397"
            x="1232.6918"
-           style="font-size:18px;font-family:GillSansMT;text-align:end;text-anchor:end"
+           style="font-size:18px;font-family:Gill Sans;text-align:end;text-anchor:end"
            class="st38 st50"
            id="tspan68706">FEMALE:</tspan></text>
 <text
@@ -2944,7 +2944,7 @@
            class="st38 st50"
            y="2298.9958"
            x="1231.8129"
-           style="font-size:18px;font-family:GillSansMT;text-align:end;text-anchor:end">MALE: </tspan></text>
+           style="font-size:18px;font-family:Gill Sans;text-align:end;text-anchor:end">MALE: </tspan></text>
 <rect
          id="rect10406"
          height="77.93"
@@ -3043,7 +3043,7 @@
          id="text10438"
          class="st38 st51"
          transform="translate(1482.5596,60.1084)"
-         style="font-size:20px;font-family:GillSansMT">JUNE / JULY 2015</text>
+         style="font-size:20px;font-family:Gill Sans">JUNE / JULY 2015</text>
 </g><g
        id="graphs"
        transform="matrix(2.633516,0,0,2.633516,-77.561412,-3354.3544)"><g
