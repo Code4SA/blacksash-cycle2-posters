@@ -19,10 +19,6 @@
 
         var idx = 2;
         var idx = parseInt(getQueryVariable('idx'))
-/*.
-var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", "file://d:/data.txt", true);
-*/
 
         d3.xml('svg/health.svg', function(xml) {
             Papa.parse('css/health.csv', {
