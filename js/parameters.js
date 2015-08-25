@@ -10,6 +10,7 @@ var small_bar_width = 10;
 var bar_width = 596;
 
 partner_map = {
+    "Adelaide" : "Adelaide Advice Office",
     "Folweni" : "Folweni",
     "Gugulethu" : "Gugulethu Advice Office",
     "Kaigarieb" : "Siyafunda",

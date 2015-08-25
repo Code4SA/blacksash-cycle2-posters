@@ -2,26 +2,26 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/sassa_style.css"/>
+        <link rel="stylesheet" href="css/localgov_style.css"/>
     </head>
     <body>
         <div id="poster"></div>
         <script src="js/d3.v3.js"></script>
-        <script src="js/papaparse.min.js"></script>
+        <script src="js/papaparse.js"></script>
         <script src="js/parameters.js"></script>
         <script src="js/bars.js"></script>
         <script src="js/misc.js"></script>
         <script src="js/vertical_bars.js"></script>
-        <script src="js/parse_sassa.js"></script>
-        <script src="js/poster_sassa.js"></script>
+        <script src="js/parse_localgov.js"></script>
+        <script src="js/poster_localgov.js"></script>
         <script>
 
 
         var idx = 2;
         var idx = parseInt(getQueryVariable('idx'))
 
-        d3.xml('svg/sassa.svg', function(xml) {
-            Papa.parse('csv/sassa_citizen.csv', {
+        d3.xml('svg/localgov.svg', function(xml) {
+            Papa.parse('csv/localgov.csv', {
                 download: true,
                 complete: function(result) {
                     var data = result.data;

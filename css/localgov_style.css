@@ -1,0 +1,21 @@
+#q1 .barseg_0 rect,
+{
+    fill: black;
+    stroke: black;
+}
+
+#q1 .barseg_2 rect,
+{
+    fill: #F4991F;
+    stroke: #F4991F;
+}
+
+.barseg_0 rect {
+    fill: black;
+    stroke: black;
+}
+
+.barseg_2 rect {
+    fill: #F4991F;
+    stroke: #F4991F;
+}

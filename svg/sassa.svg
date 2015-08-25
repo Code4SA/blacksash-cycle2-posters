@@ -815,10 +815,10 @@
 <text
        class="st4 st55"
        id="office-location"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans';text-align:start;text-anchor:start;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56px;font-family:'Gill Sans';-inkscape-font-specification:'Gill Sans';text-align:start;text-anchor:start"
        x="685.35254"
        y="300.58591"
-       transform="matrix(2.633516,0,0,2.633516,-160.62701,-3354.3544)">Location Name</text>
+       transform="matrix(2.633516,0,0,2.633516,-310.14594,-3354.3544)">Location Name</text>
 <polygon
        id="polygon8373"
        points="1214.854,74.72 1214.854,222.867 1183.557,243.034 1183.557,34.554 "
