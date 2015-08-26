@@ -6,6 +6,8 @@ function HorizontalStackedBars(node, data, ctx) {
     this.bar_height = ctx.bar_height || 50;
     this.border_width = ctx.border_width || 1;
     this.class_prefix = ctx.class_prefix || "barseg";
+    this.text_margin = ctx.text_margin || -3;
+    this.text = ctx.text || "";
     this.draw();
 }
 
@@ -39,14 +41,26 @@ HorizontalStackedBars.prototype = {
 
         bar.append("text")
             .attr("x", function(d, i) {
-                var total =  d3.sum(me.data.slice(0, i + 1));
                 var left = x(d / 2 + d3.sum(me.data.slice(0, i)));
                 return left;
             })
-            .attr("y", -3)
+            .attr("y", me.text_margin)
             .attr("dy", "-.35em")
             .attr("dx", ".35em")
             .text(function(d) { if (d > 0) return d; });
+
+        this.node.append("text")
+            .attr("x", function(d, i) {
+                var total =  x(d3.sum(me.data)) + 5;
+                return total;
+            })
+            .attr("y", function() {
+                return me.bar_height / 2;
+            })
+            .attr("dy", ".35em")
+            .text(me.text)
+            .style("text-anchor", "start")
+            .attr("transform", "translate(0, " + (me.height - me.bar_height) / 2 + ")")
     },
 }
 
