@@ -66,28 +66,31 @@ var parse3_template = function(start_row) {
     }
 }
 
-var place_type1_bar = function(node, data, width_scale) {
+var place_type1_bar = function(node, data, width_scale, ctx) {
     var total = d3.sum(data);
-    new HorizontalStackedBars(node, data, {
-        width: width_scale(total),
-        height: 100,
-        bar_height: big_bar_height
-    })
+    ctx.width = width_scale(total);
+    ctx.height = 100;
+    ctx.bar_height = big_bar_height;
+
+    new HorizontalStackedBars(node, data, ctx)
     node.select('.year').attr('transform', ' translate(' + width_scale(total) + ', 0)');
 }
 
-var place_type1_bar_small = function(node, data, width_scale) {
+var place_type1_bar_small = function(node, data, width_scale, ctx) {
     var total = d3.sum(data);
-    new HorizontalStackedBars(node, data, {
-        width: width_scale(total),
-        height: small_bar_height,
-        bar_height: small_bar_height
-    })
+    ctx.width = width_scale(total);
+    ctx.height = small_bar_height;
+    ctx.bar_height = small_bar_height;
+
+    new HorizontalStackedBars(node, data, ctx)
     node.selectAll('.barseg text').remove();
     node.select('.year').attr('transform', ' translate(' + width_scale(total) + ', 0)');
 }
 
-var place_type1_question = function(node, data) {
+var place_type1_question = function(node, data, ctx) {
+    if (ctx == undefined)
+        ctx = {}
+
     var wtotal_2015 = d3.sum(data.women['2015'])
     var wtotal_2014 = d3.sum(data.women['2014'])
     var mtotal_2015 = d3.sum(data.men['2015'])
@@ -99,10 +102,13 @@ var place_type1_question = function(node, data) {
 
     node.selectAll('.demo-contents').remove();
 
-    place_type1_bar(node.select('.women-2015'), data.women['2015'], width_scale);
-    place_type1_bar(node.select('.men-2015'), data.men['2015'], width_scale);
-    place_type1_bar_small(node.select('.women-2014'), data.women['2014'], width_scale);
-    place_type1_bar_small(node.select('.men-2014'), data.men['2014'], width_scale);
+    ctx['text'] = '2015'
+    place_type1_bar(node.select('.women-2015'), data.women['2015'], width_scale, ctx);
+    place_type1_bar(node.select('.men-2015'), data.men['2015'], width_scale, ctx);
+
+    ctx['text'] = '2014'
+    place_type1_bar_small(node.select('.women-2014'), data.women['2014'], width_scale, ctx);
+    place_type1_bar_small(node.select('.men-2014'), data.men['2014'], width_scale, ctx);
 
 }
 

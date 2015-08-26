@@ -5,6 +5,9 @@ var convert_to_json = function(data, idx) {
         return parseInt(data[r][c]);
     }
 
+    total_female_2014 = sum_rows(idx + cfo_2014, 7, 10);
+    total_male_2014 = sum_rows(idx + cmo_2014, 7, 10);
+
     var json = {
         name : partner_map[data[0][idx]],
         location : data[0][idx],
@@ -15,9 +18,9 @@ var convert_to_json = function(data, idx) {
                 male : sum_rows(idx + cm_2015, 7, 10),
             },
             '2014' : {
-                total : get_num(2, idx + 2),
-                female : sum_rows(idx + cf_2014, 7, 10),
-                male : sum_rows(idx + cm_2014, 7, 10),
+                total : total_female_2014 + total_male_2014,
+                female : total_female_2014,
+                male : total_male_2014,
             },
         },
         q1 : parse3_template(7),
@@ -26,7 +29,37 @@ var convert_to_json = function(data, idx) {
         q4 : parse3_template(19),
         q5 : parse3_template(23),
         q6 : parse3_template(27),
+        q7b : [
+            get_num(31, idx + cf_2015) + get_num(31, idx + cm_2015),
+            get_num(32, idx + cf_2015) + get_num(32, idx + cm_2015),
+            get_num(33, idx + cf_2015) + get_num(33, idx + cm_2015),
+            get_num(34, idx + cf_2015) + get_num(34, idx + cm_2015),
+            get_num(35, idx + cf_2015) + get_num(35, idx + cm_2015),
+            get_num(36, idx + cf_2015) + get_num(36, idx + cm_2015),
+            get_num(37, idx + cf_2015) + get_num(37, idx + cm_2015),
+            get_num(38, idx + cf_2015) + get_num(38, idx + cm_2015),
+            get_num(39, idx + cf_2015) + get_num(39, idx + cm_2015),
+            get_num(40, idx + cf_2015) + get_num(40, idx + cm_2015),
+        ],
         q8 : parse2_template(43),
+        q9 : [
+            get_num(46, idx + cf_2015) + get_num(46, idx + cm_2015),
+            get_num(47, idx + cf_2015) + get_num(47, idx + cm_2015),
+            get_num(48, idx + cf_2015) + get_num(48, idx + cm_2015),
+            get_num(49, idx + cf_2015) + get_num(49, idx + cm_2015),
+            get_num(50, idx + cf_2015) + get_num(50, idx + cm_2015),
+            get_num(52, idx + cf_2015) + get_num(51, idx + cm_2015),
+            get_num(53, idx + cf_2015) + get_num(52, idx + cm_2015),
+            get_num(51, idx + cf_2015) + get_num(53, idx + cm_2015),
+        ],
+        q10 : parse2_template(55),
+        q11 : parse2_template(58),
+        q12 : parse2_template(61),
+        q13 : parse2_template(64),
+        q14 : parse2_template(67),
+        q15 : parse2_template(70),
+        q16 : parse2_template(73),
+        q17 : parse2_template(76),
         /*
         q1 : [
                 old_and_new(43, idx),

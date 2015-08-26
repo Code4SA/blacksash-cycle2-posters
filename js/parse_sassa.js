@@ -3,6 +3,8 @@ var convert_to_json = function(data, idx) {
         return parseInt(data[r][c]);
     }
 
+    total_female_2014 = get_num(7, idx + cfo_2014) + get_num(8, idx + cfo_2014) + get_num(9, idx + cfo_2014)
+    total_male_2014 = get_num(7, idx + cmo_2014) + get_num(8, idx + cmo_2014) + get_num(9, idx + cmo_2014)
     return {
         name : partner_map[data[0][idx]],
         location : data[0][idx],
@@ -13,9 +15,9 @@ var convert_to_json = function(data, idx) {
                 male : get_num(7, idx + cm_2015) + get_num(8, idx + cm_2015) + get_num(9, idx + cm_2015),
             },
             '2014' : {
-                total : get_num(2, idx + 2),
-                female : get_num(7, idx + cf_2014) + get_num(8, idx + cf_2014) + get_num(9, idx + cf_2014),
-                male : get_num(7, idx + cm_2014) + get_num(8, idx + cm_2014) + get_num(9, idx + cm_2014),
+                total : total_female_2014 + total_male_2014,
+                female : total_female_2014,
+                male : total_male_2014
             },
         },
         q1 : [{

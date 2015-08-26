@@ -4,7 +4,7 @@
     stroke: black;
 }
 
-#q1 .barseg_2 rect,
+#q1 .barseg_2 rect
 {
     fill: #F4991F;
     stroke: #F4991F;
@@ -18,4 +18,8 @@
 .barseg_2 rect {
     fill: #F4991F;
     stroke: #F4991F;
+}
+
+#q10 text, #q11 text, #q12 text, #q13 text, #q14 text, #q15 text, #q16 text, #q17 text {
+    font-size: 9px;
 }
